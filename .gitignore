@@ -1,0 +1,15 @@
+*.pdf
+
+assembler
+
+*.o
+
+*.out
+*.bin
+
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
