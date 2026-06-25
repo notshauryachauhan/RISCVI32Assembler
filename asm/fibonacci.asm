@@ -1,7 +1,6 @@
 addi x10, x0, 10
 addi t0, zero, 0
 addi t1, zero, 1
-
 addi x28, x10, -1
 
 fib:
@@ -13,4 +12,3 @@ fib:
 
 exit:
 	add a0, t2, zero
-	
