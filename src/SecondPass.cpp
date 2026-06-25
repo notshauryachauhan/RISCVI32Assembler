@@ -22,8 +22,6 @@ std::vector<uint32_t> SecondPass::run(const std::vector<std::vector<std::string>
         machineCode.push_back(encoder.encode(line, currentAddress, symbolTable));
 
         currentAddress += 4;
- 
-    return machineCode;
     }
 
     machineCode.push_back(0);
