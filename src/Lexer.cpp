@@ -7,7 +7,7 @@
 #include <algorithm>
 
 
-std::vector<std::vector<std::string>> tokenise(const std::string& filePath) {
+std::vector<std::vector<std::string>> Lexer::tokenise(const std::string& filePath) {
     std::ifstream file(filePath);
     if (!file.is_open()) {
         throw std::runtime_error("Could not open file: " + filePath);
@@ -26,7 +26,7 @@ std::vector<std::vector<std::string>> tokenise(const std::string& filePath) {
     return tokens;
 }
 
-std::string stripComment(const std::string& line) {
+std::string Lexer::stripComment(const std::string& line) {
     size_t commentPos = line.find('#');
     if (commentPos != std::string::npos){
         return line.substr(0, commentPos);
@@ -34,7 +34,7 @@ std::string stripComment(const std::string& line) {
     return line;
 }
 
-std::string trim(const std::string& line){
+std::string Lexer::trim(const std::string& line){
     size_t start = line.find_first_not_of(" ");
     if (start == std::string::npos) {
         return "";
@@ -43,7 +43,7 @@ std::string trim(const std::string& line){
     return line.substr(start, end - start + 1);
 }
 
-std::vector<std::string> split(const std::string& line){
+std::vector<std::string> Lexer::split(const std::string& line){
     std::vector<std::string> tokens;
     std::string token;
     std::string modifiedLine = line;
