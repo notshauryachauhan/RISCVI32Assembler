@@ -8,7 +8,7 @@ namespace FirstPass{
         int currentAddress = 0;
         for (const auto& line : tokens) {
             if (line.empty()) {
-                continue; // Skip empty lines
+                continue;
             }
 
             bool hasInstruction = false;

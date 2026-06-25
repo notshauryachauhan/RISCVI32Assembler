@@ -21,6 +21,14 @@ int main(int argc, char* argv[]){
     Lexer lexer;
     std::vector<std::vector<std::string>> tokens = lexer.tokenise(inputFile);
 
-    
+    SymbolTable symbolTable;
+
+    FirstPass::run(tokens, symbolTable);
+
+    std::vector<uint32_t> machineCode = SecondPass::run(tokens, symbolTable);
+
+    std::cout << "Assembled " << machineCode.size() << " instructions.\n";
+    std::cout << "Output written to: " << outputFile << "\n";
+ 
 
 }
