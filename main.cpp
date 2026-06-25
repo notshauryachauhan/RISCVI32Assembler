@@ -27,6 +27,8 @@ int main(int argc, char* argv[]){
 
     std::vector<uint32_t> machineCode = SecondPass::run(tokens, symbolTable);
 
+    
+
     std::cout << "Assembled " << machineCode.size() << " instructions.\n";
     std::cout << "Output written to: " << outputFile << "\n";
 

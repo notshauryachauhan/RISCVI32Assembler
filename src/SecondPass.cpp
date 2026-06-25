@@ -26,5 +26,8 @@ std::vector<uint32_t> SecondPass::run(const std::vector<std::vector<std::string>
     return machineCode;
     }
 
+    machineCode.push_back(0);
+
+    return machineCode;
+
 }
- 

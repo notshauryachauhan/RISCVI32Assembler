@@ -20,7 +20,23 @@ std::vector<std::vector<std::string>> Lexer::tokenise(const std::string& filePat
         line = stripComment(line);
         line = trim(line);
         if (!line.empty()) {
-            tokens.push_back(split(line));
+            std::vector<std::string> lineTokens = split(line);
+            if(!lineTokens.empty()) {
+               if(lineTokens[0].back() != ':'){
+                    if(lineTokens[0].back() != ':'){
+                        for( char& c : lineTokens[0]){
+                            c = std::toupper(c);
+                        }
+                    }
+               }
+
+               if (lineTokens.size() > 1 && lineTokens[0].back() == ':') {
+                for (char& c : lineTokens[1]) {
+            c = std::toupper(c);
+        }
+    }
+    tokens.push_back(lineTokens);
+            }
         }
     }
     return tokens;
