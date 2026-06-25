@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <cstdint>
+#include <bitset>
 
 #include "Lexer.h"
 #include "SymbolTable.h"
@@ -27,7 +28,18 @@ int main(int argc, char* argv[]){
 
     std::vector<uint32_t> machineCode = SecondPass::run(tokens, symbolTable);
 
-    
+    std::ofstream outFileStream(outputFile);
+
+    if (!outFileStream.is_open()) {
+        std::cerr << "Error: Could not open output file " << outputFile << " for writing.\n";
+        return 1;
+    }
+
+    for (uint32_t instruction : machineCode) {
+        outFileStream << std::bitset<32>(instruction) << "\n";
+    }
+
+    outFileStream.close();
 
     std::cout << "Assembled " << machineCode.size() << " instructions.\n";
     std::cout << "Output written to: " << outputFile << "\n";
