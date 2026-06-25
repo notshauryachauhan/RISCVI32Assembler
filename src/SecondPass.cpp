@@ -12,7 +12,6 @@ std::vector<uint32_t> SecondPass::run(const std::vector<std::vector<std::string>
 
         if(FirstPass::isLabel(line[0])) {
             if(line.size() == 1) {
-                // Label-only line, skip encoding and don't increment address
                 continue;
             }
             machineCode.push_back(encoder.encode(std::vector<std::string>(line.begin() + 1, line.end()), currentAddress, symbolTable));
@@ -25,5 +24,7 @@ std::vector<uint32_t> SecondPass::run(const std::vector<std::vector<std::string>
         currentAddress += 4;
  
     return machineCode;
+    }
+
 }
  
