@@ -1,5 +1,5 @@
 CXX     = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -g
+CXXFLAGS = -std=c++17 -Wall -Wextra -g -Iinclude
 
 # All .cpp files in src/ + main.cpp
 SRCS = main.cpp \

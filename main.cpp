@@ -4,10 +4,10 @@
 #include <vector>
 #include <cstdint>
 
-#include "src/Lexer.h"
-#include "src/SymbolTable.h"
-#include "src/FirstPass.h"
-#include "src/SecondPass.h"
+#include "Lexer.h"
+#include "SymbolTable.h"
+#include "FirstPass.h"
+#include "SecondPass.h"
 
 int main(int argc, char* argv[]){
     if(argc != 3){
@@ -29,6 +29,5 @@ int main(int argc, char* argv[]){
 
     std::cout << "Assembled " << machineCode.size() << " instructions.\n";
     std::cout << "Output written to: " << outputFile << "\n";
- 
 
 }
